@@ -17,7 +17,6 @@ public class DomainEvent {
 	private Map<String, String> keyMap;
 	private String payload;
 //	@Builder.Default
-//	//@JsonFormat(pattern="yyyy-MM-dd")
-//	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-//	//private LocalDateTime timestamp = LocalDateTime.now();
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+//	private LocalDateTime timestamp = LocalDateTime.now();
 }
