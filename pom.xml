@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.scoperetail.fusion</groupId>
 	<artifactId>fusion-shared-kernel</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<name>fusion-shared-kernel</name>
 	<description>Shared domain models between bounded contexts</description>
 
@@ -28,7 +28,7 @@
 		<developerConnection>
 			scm:git:git@github.com:scoperetail-io/fusion-shared-kernel.git
 		</developerConnection>
-		<tag>HEAD</tag>
+		<tag>fusion-shared-kernel-0.2</tag>
 	</scm>
 
 	<dependencies>
