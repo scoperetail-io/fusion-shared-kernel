@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DomainEvent {
-  private Event event;
+  private String event;
   private String eventId; // hash key using attributes
   private Map<String, String> keyMap;
   private String payload;
