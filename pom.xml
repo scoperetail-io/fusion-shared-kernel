@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.scoperetail.fusion</groupId>
 	<artifactId>fusion-shared-kernel</artifactId>
 	<version>0.6-SNAPSHOT</version>
 	<name>fusion-shared-kernel</name>
 	<description>Shared domain models between bounded contexts</description>
+	<url>https://github.com/scoperetail-io/fusion-shared-kernel</url>
 
 	<properties>
 		<java.version>11</java.version>
@@ -15,8 +18,8 @@
 		<spotless.version>2.10.0</spotless.version>
 		<jackson.version>2.11.4</jackson.version>
 		<springfox-version>3.0.0</springfox-version>
-		<sonar.projectKey>scoperetail-io_fusion-shared-kernel</sonar.projectKey> 
-        <sonar.organization>scoperetail-io</sonar.organization>
+		<sonar.projectKey>scoperetail-io_fusion-shared-kernel</sonar.projectKey>
+		<sonar.organization>scoperetail-io</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 		<sonar.exclusions>
@@ -28,11 +31,28 @@
 	</properties>
 
 	<scm>
-		<developerConnection>
-			scm:git:git@github.com:scoperetail-io/fusion-shared-kernel.git
-		</developerConnection>
+		<connection>scm:git:git@github.com:scoperetail-io/fusion-shared-kernel.git</connection>
 		<tag>HEAD</tag>
+		<url>https://github.com/scoperetail-io/fusion-shared-kernel</url>
 	</scm>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>Scoperetail</id>
+			<name>Scoperetail Development Team</name>
+			<roles>
+				<role>Project Lead</role>
+			</roles>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
@@ -80,7 +100,7 @@
 					<generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
