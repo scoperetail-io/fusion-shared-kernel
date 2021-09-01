@@ -41,5 +41,4 @@ public class JMSEvent {
   private String brokerId;
   private String queueName;
   private String payload;
-  private String messageType;
 }

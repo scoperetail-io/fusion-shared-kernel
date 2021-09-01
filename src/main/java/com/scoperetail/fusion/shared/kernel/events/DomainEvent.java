@@ -13,10 +13,10 @@ package com.scoperetail.fusion.shared.kernel.events;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -50,11 +50,25 @@ public class DomainEvent {
     OUT,
   }
 
+  public enum Result {
+    SUCCESS,
+    FAILURE,
+  }
+
+  public enum Outcome {
+    COMPLETE,
+    ONLINE_RETRY,
+    OFFLINE_RETRY_START,
+    OFFLINE_RETRY_IN_PROGRESS,
+  }
+
   private String event;
-  private AuditType auditType;
   private String eventId; // hash key using attributes
-  private Map<String, String> keyMap;
   private String transportType;
+  private AuditType auditType;
+  private Result result;
+  private Outcome outcome;
+  private Map<String, String> keyMap;
   private String payload;
 
   @Builder.Default
