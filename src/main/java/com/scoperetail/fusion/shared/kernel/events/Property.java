@@ -1,5 +1,6 @@
-/* ScopeRetail (C)2021 */
 package com.scoperetail.fusion.shared.kernel.events;
+
+import lombok.AllArgsConstructor;
 
 /*-
  * *****
@@ -27,53 +28,25 @@ package com.scoperetail.fusion.shared.kernel.events;
  * =====
  */
 
-import java.time.LocalDateTime;
-import java.util.Set;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Builder
+@Getter
+@Setter
+@EqualsAndHashCode(of = "index")
 @NoArgsConstructor
 @AllArgsConstructor
-public class DomainEvent {
+public class Property implements Comparable<Property> {
+  private Integer index;
+  private String key;
+  private String value;
 
-  public enum AuditType {
-    IN,
-    OUT,
+  @Override
+  public int compareTo(final Property property) {
+    return this.index.compareTo(property.getIndex());
   }
-
-  public enum Result {
-    SUCCESS,
-    FAILURE,
-  }
-
-  public enum Outcome {
-    COMPLETE,
-    ONLINE_RETRY,
-    OFFLINE_RETRY_START,
-    OFFLINE_RETRY_IN_PROGRESS,
-  }
-
-  private String event;
-  private String eventId; // hash key using attributes
-  private String transportType;
-  private AuditType auditType;
-  private Result result;
-  private Outcome outcome;
-  private Set<Property> properties;
-  private String payload;
-
-  @Builder.Default
-  @JsonSerialize(using = LocalDateTimeSerializer.class)
-  @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
-  private LocalDateTime timestamp = LocalDateTime.now();
 }
