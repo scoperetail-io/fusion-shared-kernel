@@ -1,9 +1,8 @@
-/* ScopeRetail (C)2021 */
-package com.scoperetail.fusion.shared.kernel.common.annotation;
+package com.scoperetail.fusion.shared.kernel.web.request;
 
 /*-
  * *****
- * fusion-shared-kernel
+ * fusion-core
  * -----
  * Copyright (C) 2018 - 2021 Scope Retail Systems Inc.
  * -----
@@ -27,27 +26,17 @@ package com.scoperetail.fusion.shared.kernel.common.annotation;
  * =====
  */
 
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Component;
-
-@Documented
-@Retention(RUNTIME)
-@Target(TYPE)
-@Component
-public @interface MessagingAdapter {
-
-  /**
-   * The value may indicate a suggestion for a logical component name, to be turned into a Spring
-   * bean in case of an auto detected component.
-   *
-   * @return the suggested component name, if any (or empty String otherwise)
-   */
-  @AliasFor(annotation = Component.class)
-  String value() default "";
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class HttpRequestWrapper {
+  private HttpRequest httpRequest;
+  private List<String> retryCustomizers;
 }
