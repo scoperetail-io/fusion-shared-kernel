@@ -1,6 +1,4 @@
-package com.scoperetail.fusion.shared.kernel.events;
-
-import lombok.AllArgsConstructor;
+package com.scoperetail.fusion.shared.kernel.messaging.jms;
 
 /*-
  * *****
@@ -28,25 +26,19 @@ import lombok.AllArgsConstructor;
  * =====
  */
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "index")
-@NoArgsConstructor
-@AllArgsConstructor
-public class Property implements Comparable<Property> {
-  private Integer index;
-  private String key;
-  private String value;
-
-  @Override
-  public int compareTo(final Property property) {
-    return this.index.compareTo(property.getIndex());
-  }
+public class JMSEventWrapper {
+  private String brokerId;
+  private String queueName;
+  private String payload;
 }

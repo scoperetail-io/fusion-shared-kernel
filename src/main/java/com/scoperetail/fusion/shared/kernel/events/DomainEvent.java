@@ -69,7 +69,7 @@ public class DomainEvent {
   private AuditType auditType;
   private Result result;
   private Outcome outcome;
-  private Set<Property> properties;
+  private Set<DomainProperty> domainProperties;
   private String payload;
 
   @Builder.Default
